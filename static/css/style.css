@@ -115,3 +115,36 @@ a {
 a:hover {
     text-decoration: underline; /* Sublinha o link ao passar o mouse */
 }
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Tamanho do cabeçalho reduzido em telas menores */
+    }
+
+    form {
+        padding: 15px; /* Reduzir o preenchimento em telas menores */
+    }
+
+    input[type="submit"] {
+        padding: 10px; /* Ajusta o preenchimento do botão */
+    }
+
+    pre {
+        font-size: 0.9em; /* Tamanho da fonte reduzido para melhor ajuste */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Tamanho do cabeçalho ainda menor em telas muito pequenas */
+    }
+
+    form {
+        margin: 0 10px; /* Adiciona margem lateral em telas pequenas */
+    }
+
+    input[type="submit"] {
+        width: 100%; /* Botão ocupa toda a largura */
+    }
+}

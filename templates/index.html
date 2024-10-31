@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consepro - Web Scraper</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="https://media.licdn.com/dms/image/v2/D4D0BAQE36pGq9vjhdw/company-logo_200_200/company-logo_200_200/0/1729013156508?e=1738195200&v=beta&t=LmmRSZqyI07CxTAE97QaCEP2X0zy53W6CK56_PwERow">
+</head>
+<body>
+    <h1>Web Scraping</h1>
+    <form method="post">
+        <label for="url">Digite a URL:</label>
+        <input type="text" id="url" name="url" required>
+        <input type="submit" value="Scrape">
+    </form>
+
+    {% if result %}
+        <h2>Resultados do Scraping</h2>
+        
+        <h3>Título da Página: {{ result['Título da Página'] }}</h3>
+
+        <h4>Links:</h4>
+        <ul>
+            {% for link in result['Links'] %}
+                <li><a href="{{ link.url }}">{{ link.texto }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <h4>Conteúdo Principal:</h4>
+        <pre>{{ result['Conteúdo Principal'] }}</pre>
+
+        <h4>Imagens:</h4>
+        <ul>
+            {% for img in result['Imagens'] %}
+                <li>
+                    <img src="{{ img.url }}" alt="{{ img.alt }}" style="max-width: 200px;">
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <footer>
+        <img src="https://consepro.com.br/wp-content/uploads/2024/10/Logo_consepro-transp.png" alt="Consepro">
+        <p>© 2024 Consepro. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
